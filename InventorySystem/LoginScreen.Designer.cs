@@ -63,7 +63,7 @@
             // errorLbl
             // 
             this.errorLbl.AutoSize = true;
-            this.errorLbl.Location = new System.Drawing.Point(165, 165);
+            this.errorLbl.Location = new System.Drawing.Point(102, 164);
             this.errorLbl.Name = "errorLbl";
             this.errorLbl.Size = new System.Drawing.Size(0, 13);
             this.errorLbl.TabIndex = 3;
@@ -86,7 +86,7 @@
             this.passwordLbl.TabIndex = 5;
             this.passwordLbl.Text = "Password";
             // 
-            // Form1
+            // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -97,7 +97,7 @@
             this.Controls.Add(this.loginSubmitBtn);
             this.Controls.Add(this.passwordTxtBx);
             this.Controls.Add(this.usernameTxtBx);
-            this.Name = "Form1";
+            this.Name = "LoginScreen";
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
