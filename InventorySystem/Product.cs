@@ -14,9 +14,9 @@ namespace InventorySystem
         public int ItemSKU { get; set; }
         public int StockNum { get; set; }
 
-        public static double GetTotalCost(double price, int stock)
+        public static double GetTotalCost(Product yuh)
         {
-            return price * stock;
+            return yuh.Price * yuh.StockNum;
         }
     }
 }
