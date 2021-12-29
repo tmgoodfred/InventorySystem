@@ -33,7 +33,7 @@ namespace InventorySystem
         {
             string enteredUsername = "", enteredPassword = "";    //a string to store and compare the user entered info
             string dictPassword = "";                        //a string to store and compare the related dictionary password
-            bool userPassFlag = false;
+            bool userPassFlag = false, passCheck = false;
             while (userPassFlag == false)
             {
                 if (usernameTxtBx.Text != null || usernameTxtBx.Text != "")
@@ -55,16 +55,24 @@ namespace InventorySystem
                 }
             }
             string value = "";
-            if (userPass.TryGetValue(enteredUsername, out value))
+            while (passCheck != true)
             {
-                if (enteredPassword.Equals(value))
+                if (userPass.TryGetValue(enteredUsername, out value))
                 {
-                    //successful login!
-                    Console.WriteLine("You're in");
-                }
-                else
-                {
-                    Console.WriteLine("Big Whiff!");
+                    if (enteredPassword.Equals(value))
+                    {
+                        //successful login!
+                        var mainScreenForm = new MainScreen();
+                        Console.WriteLine("You're in");
+                        mainScreenForm.ShowDialog();
+                        this.Close();
+                        passCheck = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Big Whiff!");
+                        errorLbl.Text = "Incorrect Password";
+                    }
                 }
             }
         }
