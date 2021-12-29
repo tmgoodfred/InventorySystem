@@ -34,7 +34,7 @@ namespace InventorySystem
             string enteredUsername = "", enteredPassword = "";    //a string to store and compare the user entered info
             string dictPassword = "";                        //a string to store and compare the related dictionary password
             bool userPassFlag = false, passCheck = false;
-            while (userPassFlag == false)
+            while (userPassFlag == false && passCheck == false)
             {
                 if (usernameTxtBx.Text != null || usernameTxtBx.Text != "")
                 {
@@ -55,26 +55,24 @@ namespace InventorySystem
                 }
             }
             string value = "";
-            while (passCheck != true)
+            if (userPass.TryGetValue(enteredUsername, out value))
             {
-                if (userPass.TryGetValue(enteredUsername, out value))
+                if (enteredPassword.Equals(value))
                 {
-                    if (enteredPassword.Equals(value))
-                    {
-                        //successful login!
-                        var mainScreenForm = new MainScreen();
-                        Console.WriteLine("You're in");
-                        mainScreenForm.ShowDialog();
-                        this.Close();
-                        passCheck = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Big Whiff!");
-                        errorLbl.Text = "Incorrect Password";
-                    }
+                    //successful login!
+                    var mainScreenForm = new MainScreen();
+                    Console.WriteLine("You're in");
+                    mainScreenForm.ShowDialog();
+                    this.Close();
+                    passCheck = true;
+                }
+                else
+                {
+                    Console.WriteLine("Big Whiff!");
+                    errorLbl.Text = "Incorrect Password";
                 }
             }
+            
         }
     }
 }
