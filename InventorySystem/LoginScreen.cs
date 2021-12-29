@@ -55,11 +55,16 @@ namespace InventorySystem
                 }
             }
             string value = "";
-            if (userPass.TryGetValue(enteredUsername, out value)){
+            if (userPass.TryGetValue(enteredUsername, out value))
+            {
                 if (enteredPassword.Equals(value))
                 {
                     //successful login!
                     Console.WriteLine("You're in");
+                }
+                else
+                {
+                    Console.WriteLine("Big Whiff!");
                 }
             }
         }
